@@ -44,11 +44,13 @@
       next();
     });
     app.use(bodyParser.json());
-    app.use(cors({
-      origin: corsOrigin,
-      methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
-      credentials: true,
-    }));
+    app.use(
+      cors({
+        origin: corsOrigin,
+        methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+        credentials: true,
+      })
+    );
 
     app.use("/uploads", express.static(path.join(__dirname, "./uploads")));
 
@@ -73,7 +75,7 @@
     console.log("🗑️ Starting trash cleanup job...");
     startTrashCleanup();
 
-    const port = process.argv[3] || process.env.BACKEND_PORT;
+    const port = process.env.BACKEND_PORT;
     if (isNaN(port) || port < 1 || port > 65535) {
       console.error("❌ Invalid port number.");
       process.exit(1);
@@ -88,4 +90,3 @@
     process.exit(1);
   }
 })();
-
