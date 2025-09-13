@@ -1,0 +1,170 @@
+/* Define CSS variables for light and dark themes */
+:root {
+  /* Light theme colors (unchanged from provided file) */
+  --gmail-layout-bg: #f5f7fa;
+  --sidebar-bg: #202124;
+  --sidebar-text-color: white;
+  --compose-btn-bg: #1a73e8;
+  --compose-btn-hover-bg: #1669c1;
+  --compose-btn-text-color: white;
+  --menu-hover-bg: #3c4043;
+  --content-bg: white;
+  --topbar-bg: #f1f3f4;
+  --topbar-border: #ddd;
+  --search-bar-border: #ccc;
+  --search-bar-focus-border: #1a73e8;
+  --email-border: #eee;
+  --email-hover-bg: #f1f3f4;
+  --sender-color: #202124;
+  --subject-color: #5f6368;
+  --time-color: #5f6368;
+}
+
+/* Dark theme colors */
+[data-theme="dark"],
+html[data-theme="dark"],
+body[data-theme="dark"] {
+  --gmail-layout-bg: #1a1a1a;
+  --sidebar-bg: #2d2d2d;
+  --sidebar-text-color: #e0e0e0;
+  --compose-btn-bg: #4da6ff;
+  --compose-btn-hover-bg: #3399ff;
+  --compose-btn-text-color: #e0e0e0;
+  --menu-hover-bg: #3a3a3a;
+  --content-bg: #242424;
+  --topbar-bg: #2d2d2d;
+  --topbar-border: #333;
+  --search-bar-border: #404040;
+  --search-bar-focus-border: #4da6ff;
+  --email-border: #333;
+  --email-hover-bg: #3a3a3a;
+  --sender-color: #e0e0e0;
+  --subject-color: #b0b0b0;
+  --time-color: #b0b0b0;
+}
+
+.gmail-layout {
+  display: flex;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: var(--gmail-layout-bg);
+}
+
+/* סיידבר */
+.sidebar {
+  width: 240px;
+  background-color: var(--sidebar-bg);
+  color: var(--sidebar-text-color);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.compose-btn {
+  background-color: var(--compose-btn-bg);
+  border: none;
+  color: var(--compose-btn-text-color);
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 24px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.compose-btn:hover {
+  background-color: var(--compose-btn-hover-bg);
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  padding: 12px 10px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 4px;
+  user-select: none;
+  transition: background-color 0.2s ease;
+  color: var(--sidebar-text-color);
+}
+
+.menu li:hover {
+  background-color: var(--menu-hover-bg);
+}
+
+/* תוכן מרכזי */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--content-bg);
+}
+
+/* טופבר עם שדה חיפוש */
+.topbar {
+  padding: 10px 20px;
+  background-color: var(--topbar-bg);
+  border-bottom: 1px solid var(--topbar-border);
+  display: flex;
+  align-items: center;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 24px;
+  border: 1px solid var(--search-bar-border);
+  outline: none;
+  transition: border-color 0.3s ease;
+  background-color: var(--content-bg);
+  color: var(--text-primary);
+}
+
+.search-bar:focus {
+  border-color: var(--search-bar-focus-border);
+}
+
+/* רשימת האימיילים */
+.inbox {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  min-width: 0;
+}
+
+.email {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--email-border);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.email:hover {
+  background-color: var(--email-hover-bg);
+}
+
+.sender {
+  font-weight: 600;
+  width: 150px;
+  color: var(--sender-color);
+}
+
+.subject {
+  flex: 1;
+  color: var(--subject-color);
+}
+
+.time {
+  width: 80px;
+  text-align: right;
+  color: var(--time-color);
+  font-size: 14px;
+}

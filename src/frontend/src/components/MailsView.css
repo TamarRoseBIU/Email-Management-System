@@ -1,0 +1,474 @@
+/* Define CSS variables for light and dark themes */
+:root {
+  /* Light theme colors (unchanged from provided file) */
+  --text-primary: #333;
+  --email-list-bg: #ffffff;
+  --email-list-shadow: rgba(0, 0, 0, 0.1);
+  --email-list-border: #ccc;
+  --email-item-bg: #f5f5f5;
+  --email-item-border: #ddd;
+  --email-item-hover-bg: #eaeaea;
+  --email-item-unread-bg: #fffbe6;
+  --email-item-unread-shadow: rgba(237, 234, 215, 0.4);
+  --email-item-unread-border: #f5f5f5;
+  --sender-color: #333;
+  --subject-color: #555;
+  --body-color: #444;
+  --labels-color: #007bff;
+  --label-chip-bg: #423f3f;
+  --label-chip-text: #f4f5f6;
+  --label-chip-border: #ccc;
+  --label-chip-hover-bg: #e6e6e6;
+  --label-chip-hover-shadow: rgba(0, 0, 0, 0.1);
+  --no-label-color: #353535;
+  --timestamp-color: #999;
+  --button-color: #888888;
+  --button-hover-color: #555555;
+  --button-focus-shadow: #aaa;
+  --restore-button-color: #28a745;
+  --restore-button-hover-color: #1c7c31;
+  --restore-button-focus-shadow: #a2d5a2;
+  --empty-spam-message-color: #888;
+  --email-detail-container-bg: #fafafa;
+  --email-detail-container-shadow: rgba(0, 0, 0, 0.05);
+  --email-detail-header-border: #ddd;
+  --email-detail-header-color: #007bff;
+  --email-detail-meta-color: #666;
+  --email-detail-body-bg: #fff;
+  --email-detail-body-shadow: #eee;
+  --back-button-color: #007bff;
+  --back-button-hover-color: #0056b3;
+  --email-meta-color: #666;
+  --email-subject-color: #333;
+}
+
+/* Dark theme colors */
+[data-theme="dark"],
+html[data-theme="dark"],
+body[data-theme="dark"] {
+  --text-primary: #e0e0e0;
+  --email-list-bg: #2d2d2d;
+  --email-list-shadow: rgba(0, 0, 0, 0.3);
+  --email-list-border: #404040;
+  --email-item-bg: #3a3a3a;
+  --email-item-border: #333;
+  --email-item-hover-bg: #444444;
+  --email-item-unread-bg: #3e2f1a;
+  --email-item-unread-shadow: rgba(42, 36, 22, 0.6);
+  --email-item-unread-border: #3a3a3a;
+  --sender-color: #e0e0e0;
+  --subject-color: #b0b0b0;
+  --body-color: #c0c0c0;
+  --labels-color: #4da6ff;
+  --label-chip-bg: #4a4949;
+  --label-chip-text: #e0e0e0;
+  --label-chip-border: #404040;
+  --label-chip-hover-bg: #4d4d4d;
+  --label-chip-hover-shadow: rgba(0, 0, 0, 0.2);
+  --no-label-color: #a0a0a0;
+  --timestamp-color: #666;
+  --button-color: #777;
+  --button-hover-color: #b0b0b0;
+  --button-focus-shadow: #666;
+  --restore-button-color: #4caf50;
+  --restore-button-hover-color: #388e3c;
+  --restore-button-focus-shadow: #4d9a4d;
+  --empty-spam-message-color: #777;
+  --email-detail-container-bg: #242424;
+  --email-detail-container-shadow: rgba(0, 0, 0, 0.2);
+  --email-detail-header-border: #333;
+  --email-detail-header-color: #4da6ff;
+  --email-detail-meta-color: #999;
+  --email-detail-body-bg: #1e1e1e;
+  --email-detail-body-shadow: #333;
+  --back-button-color: #4da6ff;
+  --back-button-hover-color: #3399ff;
+  --email-meta-color: #999;
+  --email-subject-color: #e0e0e0;
+}
+
+.inbox-container h2,
+.inbox-container h3,
+.inbox-container p,
+.inbox-container .section-title,
+.inbox-container .empty-section,
+.inbox-container .error {
+  color: var(--text-primary);
+}
+
+.email-list li {
+  padding: 0;
+  margin: 0 0 6px 0;
+}
+
+.email-list {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.email-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding: 6px 10px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  border-bottom: 1px solid var(--email-item-border);
+  background-color: var(--email-item-bg);
+  border-radius: 4px;
+  font-size: 12px;
+  border: none;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  text-align: left;
+  min-height: 40px;
+  overflow: hidden;
+  line-height: 1.2;
+}
+
+.email-item:hover {
+  background-color: var(--email-item-hover-bg);
+}
+
+.email-item span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.email-body {
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.6;
+  font-family: inherit;
+}
+
+.sender,
+.subject,
+.body,
+.labels,
+.timestamp {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.sender,
+.to,
+.subject,
+.body {
+  min-width: 0;
+  font-size: 0.9rem;
+  width: 25%;
+}
+
+.email-item-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.spam-button,
+.labels-button,
+.trash-button,
+.mark-unread-button,
+.mark-read-button {
+  background-color: transparent;
+  color: var(--button-color);
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.2s;
+  outline: none;
+  box-shadow: none;
+}
+
+.spam-button:hover,
+.labels-button:hover,
+.trash-button:hover,
+.mark-unread-button:hover,
+.mark-read-button:hover {
+  color: var(--button-hover-color);
+}
+
+.spam-button:focus,
+.labels-button:focus,
+.trash-button:focus,
+.mark-unread-button:focus,
+.mark-read-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--button-focus-shadow);
+  color: var(--button-hover-color);
+}
+
+.timestamp {
+  min-width: 0;
+  font-size: 0.9rem;
+  width: 30%;
+}
+
+.email-item.unread {
+  background-color: var(--email-item-unread-bg);
+  box-shadow: 0 0 8px var(--email-item-unread-shadow);
+  border: 1px solid var(--email-item-unread-border);
+}
+
+.sender {
+  font-weight: bold;
+  flex: 1;
+  min-width: 80px;
+  color: var(--sender-color);
+}
+
+.subject {
+  flex: 2;
+  padding-left: 4%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: bold;
+  color: var(--subject-color);
+}
+
+.subject-wrapper {
+  position: relative;
+  padding-left: 55px; 
+  flex: 2;
+  min-width: 0;
+  overflow: hidden;
+  padding-right: 10px;
+}
+.body {
+  flex: 3;
+  padding: 0 10px;
+  color: var(--body-color);
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*
+  .labels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    align-items: center;
+    flex: 1.5;
+    font-size: 11px;
+    min-width: 0;
+    font-size: 0.9rem;
+    width: 15%;
+  }
+  */
+
+.label-chip {
+  display: inline-block;
+  background-color: var(--label-chip-bg);
+  color: var(--label-chip-text);
+  border: 1px solid var(--label-chip-border);
+  border-radius: 16px;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin: 2px 4px 2px 0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  cursor: default;
+}
+
+.label-chip:hover {
+  background-color: var(--label-chip-hover-bg);
+  box-shadow: 0 2px 4px var(--label-chip-hover-shadow);
+}
+
+.labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: center;
+  flex: 1.5;
+  font-size: 11px;
+  min-width: 0;
+  font-size: 0.9rem;
+  width: 15%;
+}
+
+.no-label {
+  font-style: italic;
+  flex: 1.5;
+  font-size: 11px;
+  color: var(--no-label-color);
+}
+
+.timestamp {
+  flex: 1;
+  font-size: 10px;
+  color: var(--timestamp-color);
+  text-align: right;
+}
+
+.inbox-container {
+  padding: 20px;
+  background: var(--email-list-bg);
+  box-shadow: 0px 4px 10px var(--email-list-shadow);
+  border: 2px solid var(--email-list-border);
+  border-radius: 8px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.email-detail-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 25px 30px;
+  background-color: var(--email-detail-container-bg);
+  border-radius: 8px;
+  box-shadow: inset 0 0 10px var(--email-detail-container-shadow);
+}
+
+.email-detail-header {
+  border-bottom: 1px solid var(--email-detail-header-border);
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.email-detail-header h2 {
+  margin: 0 0 10px;
+  font-size: 1.8rem;
+  color: var(--email-detail-header-color);
+}
+
+.email-detail-meta {
+  font-size: 0.9rem;
+  color: var(--email-detail-meta-color);
+  margin-bottom: 10px;
+}
+
+.email-detail-body {
+  line-height: 1.6;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  background-color: var(--email-detail-body-bg);
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: inset 0 0 10px var(--email-detail-body-shadow);
+}
+
+.back-button {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  color: var(--back-button-color);
+  cursor: pointer;
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  padding: 0;
+  transition: color 0.3s ease;
+}
+
+.back-button:hover {
+  color: var(--back-button-hover-color);
+  text-decoration: underline;
+}
+
+.email-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.85rem;
+  color: var(--email-meta-color);
+  margin-bottom: 12px;
+}
+
+.email-meta-row span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.email-subject {
+  font-size: 1.1rem;
+  color: var(--email-subject-color);
+  margin-bottom: 10px;
+}
+
+.restore-button {
+  background-color: transparent;
+  color: var(--restore-button-color);
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.2s;
+  outline: none;
+  box-shadow: none;
+}
+
+.restore-button:hover {
+  color: var(--restore-button-hover-color);
+}
+
+.restore-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--restore-button-focus-shadow);
+  color: var(--restore-button-hover-color);
+}
+
+.empty-spam-message {
+  font-style: italic;
+  color: var(--empty-spam-message-color);
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1rem;
+}
+
+.draft-tag {
+  display: inline-block;
+  margin: 0 4px; /* closer to sender and subject */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
+    sans-serif;
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: red;
+  flex-shrink: 0;
+}
+
+.subject-flex {
+  display: flex;
+  align-items: center;
+  flex: 2;
+  gap: 6px;
+  min-width: 0;
+  padding: 0 10px;
+  overflow: hidden;
+}
+
+.subject-fixed-wrapper {
+  position: relative;
+  flex: 2;
+  min-width: 0;
+  padding-left: 50px; 
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.draft-absolute {
+  position: absolute;
+  left: 10px;
+  color: red;
+  font-weight: bold;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  pointer-events: none;
+}

@@ -1,0 +1,117 @@
+.user-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 0.7rem 1rem;
+  background: transparent;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+.user-menu-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  /* no width:100% */
+}
+
+/* .user-menu-toggle {
+  width: 32px;
+  height: 11px;
+  border-radius: 50%;
+  padding: 0;
+  background: var(--toggle-bg, #fff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+} */
+
+.user-avatar {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+}
+/* Hover effects */
+.user-avatar:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.user-menu-modal {
+  position: absolute;
+  top: 48px;
+  right: 0;
+  pointer-events: auto; /* ensures clicks register */
+  background-color: var(--menu-bg, #fff);
+  border: 1px solid var(--border-color, #ccc);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  min-width: 200px;
+
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  padding: 1.5rem;
+  margin-top: 0.5rem;
+  gap: 1rem;
+}
+
+.user-menu-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.user-menu-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid #e5e7eb;
+}
+
+.user-menu-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.user-menu-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.menu-action-button {
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background: #f3f4f6;
+  color: #111827;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.2s ease;
+}
+
+.menu-action-button:hover {
+  background: #e5e7eb;
+}
+
+.menu-action-button.logout {
+  background: #ef4444;
+  color: white;
+}
+
+.menu-action-button.logout:hover {
+  background: #dc2626;
+}

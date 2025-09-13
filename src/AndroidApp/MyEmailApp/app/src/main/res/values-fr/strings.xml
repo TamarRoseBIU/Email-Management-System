@@ -1,0 +1,198 @@
+<resources>
+    <string name="app_name">MonAppEmail</string>
+    <string name="login">Se connecter</string>
+    <string name="logging_in">Connexion en cours...</string>
+
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+
+    <string name="step_name">Entrez votre nom</string>
+    <string name="step_birth">Date de naissance &amp; genre</string>
+    <string name="step_username">Choisissez un nom d\'utilisateur</string>
+    <string name="step_password">Créez un mot de passe</string>
+    <string name="step_phone">Numéro de téléphone</string>
+    <string name="step_profile">Photo de profil (facultatif)</string>
+    <string name="btn_sign_up">S\'inscrire</string>
+    <string name="btn_sign_in">Se connecter</string>
+    <string name="btn_next">Suivant</string>
+    <string name="btn_back_to_login">Retour à la connexion</string>
+    <string name="btn_back">Retour</string>
+    <string name="error_first_name_required">Le prénom est requis</string>
+    <string name="error_first_name_letters">Le prénom ne doit contenir que des lettres anglaises</string>
+    <string name="error_last_name_required">Le nom de famille est requis</string>
+    <string name="error_last_name_letters">Le nom de famille ne doit contenir que des lettres anglaises</string>
+    <string name="error_birth_date_required">La date de naissance est requise</string>
+    <string name="error_birth_date_past">La date de naissance doit être dans le passé</string>
+    <string name="error_invalid_date_format">Format de date invalide</string>
+    <string name="error_gender_required">Veuillez sélectionner un genre</string>
+    <string name="error_username_required">Le nom d\'utilisateur est requis</string>
+    <string name="error_username_length">Le nom d\'utilisateur doit comporter au moins 3 caractères</string>
+    <string name="error_username_chars">Le nom d\'utilisateur ne doit contenir que des lettres et chiffres anglais</string>
+    <string name="error_username_exists">Ce nom d\'utilisateur existe déjà. Veuillez en choisir un autre</string>
+    <string name="error_username_validation_failed">Échec de la validation du nom d\'utilisateur. Veuillez réessayer.</string>
+    <string name="error_password_required">Le mot de passe est requis</string>
+    <string name="error_password_length">Le mot de passe doit comporter au moins 6 caractères</string>
+    <string name="error_password_spaces">Le mot de passe ne peut pas contenir d\'espaces</string>
+    <string name="error_confirm_password_required">Veuillez confirmer votre mot de passe</string>
+    <string name="error_passwords_not_match">Les mots de passe doivent correspondre</string>
+    <string name="error_phone_required">Le numéro de téléphone est requis</string>
+    <string name="error_phone_format">Le numéro de téléphone doit comporter 10 chiffres et commencer par \'05\'</string>
+    <string name="error_invalid_image_format">Veuillez télécharger un fichier image valide (jpg, jpeg, png, gif)</string>
+    <string name="error_image_upload_failed">Échec du téléchargement de l\'image</string>
+    <string name="error_registration_failed">Erreur %1$d</string>
+    <string name="error_network">Erreur réseau : %1$s</string>
+    <string name="error_empty_credentials">Nom d\'utilisateur et mot de passe requis</string>
+    <string name="error_login_failed">Échec de la connexion</string>
+    <string name="error_login_failed_with_code">Échec de la connexion : %1$d</string>
+    <string name="error_processing_response">Erreur lors du traitement de la réponse，一旦 de connexion</string>
+    <string name="error_opening_main">Erreur lors de l\'ouverture de l\'écran principal : %1$s</string>
+    <string name="username_hint">Nom d\'utilisateur</string>
+    <string name="password_hint">Mot de passe</string>
+    <string name="btn_login">Connexion</string>
+    <string name="btn_create_account">Créer un compte</string>
+    <string name="first_name_hint">Prénom</string>
+    <string name="last_name_hint">Nom de famille</string>
+    <string name="birth_date_hint">Date de naissance (AAAA-MM-JJ)</string>
+    <string name="gender_female">Féminin</string>
+    <string name="gender_male">Masculin</string>
+    <string name="gender_other">Autre</string>
+    <string name="confirm_password_hint">Confirmer le mot de passe</string>
+    <string name="show_password">Afficher le mot de passe</string>
+    <string name="phone_hint">Numéro de téléphone</string>
+    <string name="profile_image_description">Image de profil</string>
+    <string name="select_image">Sélectionner une image</string>
+    <string name="profile_hint">Télécharger une photo de profil (facultatif)</string>
+    <string name="sender_placeholder">Expéditeur</string>
+    <string name="subject_placeholder">Objet</string>
+    <string name="snippet_placeholder">Extrait</string>
+    <string name="date_placeholder">Date</string>
+    <string name="btn_reply">Répondre</string>
+    <string name="btn_forward">Transférer</string>
+    <string name="btn_delete">Supprimer</string>
+    <string name="btn_restore">Restaurer</string>
+    <string name="btn_permanent_delete">Supprimer définitivement</string>
+
+
+
+
+    <string name="trash_title">🗑️ Corbeille</string>
+    <string name="empty_trash_text">🗑️ Aucun e-mail dans la corbeille</string>
+
+
+
+    <string name="body_placeholder">Corps</string>
+    <string name="labels_placeholder">Étiquettes</string>
+    <string name="btn_mark_read">Marquer comme lu</string>
+    <string name="btn_mark_unread">Marquer comme non lu</string>
+    <string name="btn_spam">Marquer comme spam</string>
+    <string name="btn_labels">Ajouter des étiquettes</string>
+    <string name="star_btn">Star</string>
+
+
+    <string name="nav_home">Accueil</string>
+    <string name="nav_inbox">Boîte de réception</string>
+    <string name="nav_starred">Favoris</string>
+    <string name="nav_sent">Envoyés</string>
+    <string name="nav_drafts">Brouillons</string>
+    <string name="nav_spam">Spam</string>
+    <string name="nav_trash">Corbeille</string>
+    <string name="nav_logout">Déconnexion</string>
+    <string name="account_section">Compte</string>
+    <string name="hello_user">Salut %1$s!</string>
+
+    <string name="action_settings">Paramètres</string>
+
+    <string name="menu_home">Accueil</string>
+    <string name="menu_gallery">Galerie</string>
+    <string name="menu_slideshow">Diaporama</string>
+
+    <string name="navigation_drawer_open">Ouvrir le tiroir de navigation</string>
+    <string name="navigation_drawer_close">Fermer le tiroir de navigation</string>
+    <string name="nav_header_desc">En-tête de navigation</string>
+
+    <string name="action_logout">Déconnexion</string>
+
+    <string name="no_labels">Aucun label</string>
+    <string name="no_subject">(Sans objet)</string>
+    <string name="draft_prefix">Brouillon : %1$s</string>
+    <string name="mark_read">Marquer comme lu</string>
+    <string name="mark_unread">Marquer comme non lu</string>
+    <string name="inbox_title">Boîte de réception</string>
+    <string name="empty_inbox_text">Pas encore de mails dans la boîte de réception</string>
+    <string name="sent_title">Envoyés</string>
+    <string name="empty_sent_text">Pas encore de mails envoyés</string>
+    <string name="drafts_title">Brouillons</string>
+    <string name="empty_drafts_text">Pas encore de brouillons</string>
+    <string name="starred_title">Favoris</string>
+    <string name="empty_starred_text">Pas encore de mails favoris</string>
+    <string name="labels_section">Étiquettes</string>
+    <string name="nav_view_labels">Étiquettes</string>
+    <string name="nav_profile">Profil</string>
+
+    <string name="profile_image_desc">Image de profil</string>
+    <string name="name_format">Nom: %1$s %2$s</string>
+    <string name="username_format">Nom d\'utilisateur: @%1$s</string>
+    <string name="phone_format">Téléphone: %1$s</string>
+    <string name="birthdate_format">Date de naissance: %1$s</string>
+    <string name="gender_format">Sexe: %1$s</string>
+
+
+    <string name="email_from">De: %s</string>
+    <string name="email_subject">Objet: %s</string>
+    <string name="email_no_subject">(Pas de sujet)</string>
+    <string name="email_timestamp">Horodatage: %s</string>
+    <string name="email_body">Corps: %s</string>
+    <string name="email_labels">Étiquettes: %s</string>
+    <string name="email_no_labels">Étiquettes: Aucune étiquette</string>
+    <string name="no_sender">(aucun expéditeur)</string>
+    <string name="search_btn">Cherche l\'éttiquette</string>
+    <string name="spam">🚫 Spam</string>
+    <string name="your_spam_folder_is_empty">Votre dossier spam est vide.</string>
+
+
+    <string name="add_new_label">Ajouter une nouvelle étiquette</string>
+    <string name="label_name_hint">Nom de l\'étiquette</string>
+    <string name="back_button">Retour</string>
+    <string name="labels_prefix">Étiquettes :</string>
+
+    <string name="search_labels_hint">Rechercher des étiquettes...</string>
+    <string name="no_labels_found">Aucune étiquette trouvée</string>
+    <string name="create_label_prompt">Appuyez sur le bouton + pour créer votre première étiquette</string>
+    <string name="add_label">Ajouter une étiquette</string>
+    <string name="name_prefix">Nom : %s</string>
+    <string name="username_prefix">Nom d\'utilisateur : %s</string>
+    <string name="phone_prefix">Téléphone : %s</string>
+    <string name="birthdate_prefix">Date de naissance : %s</string>
+    <string name="gender_prefix">Genre : %s</string>
+
+    <string name="label_name">Nom de l\'étiquette</string>
+    <string name="edit_button">Modifier</string>
+    <string name="delete_button">Supprimer</string>
+    <string name="toolbar_title_emails">E-mails</string>
+    <string name="no_emails_with_label">Aucun e-mail avec cette étiquette</string>
+    <string name="filter_prefix">Filtre :</string>
+    <string name="all_emails">Tous les e-mails</string>
+    <string name="unread_only">Non lus uniquement</string>
+    <string name="no_emails_in_inbox">Aucun e-mail dans la boîte de réception</string>
+
+    <string name="home_greeting">Bonjour %1$s!</string>
+    <string name="username_default">hihi</string>
+
+    <string name="search_hint">Rechercher des e-mails…</string>
+    <string name="search_icon_desc">Icône de recherche</string>
+
+    <string name="search_placeholder">Rechercher dans le contenu des e-mails</string>
+    <string name="no_mails_with_content">Aucun e-mail trouvé avec ce contenu.</string>
+    <string name="toolbar_title_search_results">Résultats de recherche</string>
+    <string name="no_label_found">Aucun libellé correspondant trouvé pour cet e-mail.</string>
+    <string name="no_query_results">Aucun e-mail correspondant à cette requête de recherche trouvé.</string>
+    <string name="search_type_query_title">Requête : %1$s</string>
+    <string name="search_type_label_title">Libellé : %1$s</string>
+    <string name="no_emails_with_query">Aucun e-mail correspondant à la requête "%1$s".</string>
+
+
+
+
+
+
+</resources>

@@ -1,0 +1,27 @@
+
+FROM gcc:latest
+
+
+RUN apt-get update && apt-get install -y cmake make
+
+WORKDIR /app
+
+
+COPY CMakeLists.txt .
+COPY src/ src/
+COPY data/ data/
+
+
+WORKDIR /app/build
+
+
+RUN cmake ..
+
+
+RUN make
+
+
+WORKDIR /app/build
+
+
+CMD ["./BloomFilterApp"]

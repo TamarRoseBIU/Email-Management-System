@@ -1,0 +1,333 @@
+/* Define CSS variables for light and dark themes */
+:root {
+  /* Light theme colors (unchanged from provided file) */
+  --text-primary: #333;
+  --body-bg: #f6f8fc;
+  --sidebar-bg: #ffffff;
+  --sidebar-shadow: rgba(0, 0, 0, 0.1);
+  --sidebar-title-color: #333;
+  --menu-item-color: #202124;
+  --menu-hover-bg: #e8f0fe;
+  --topbar-bg: #ffffff;
+  --topbar-shadow: rgba(0, 0, 0, 0.05);
+  --topbar-border: #ddd;
+  --search-bar-border: #ccc;
+  --search-bar-focus-border: #1a73e8;
+  --inbox-section-bg: #ffffff;
+  --inbox-section-shadow: rgba(0, 0, 0, 0.05);
+  --inbox-section-border: #ddd;
+  --email-item-border: #ddd;
+  --email-item-hover-bg: #f2f2f2;
+  --sender-color: #202124;
+  --subject-color: #202124;
+  --time-color: #5f6368;
+  --search-section-bg: #ffffff;
+  --search-section-shadow: rgba(0, 0, 0, 0.05);
+  --search-section-border: #ddd;
+  --compose-btn-bg: #1a73e8;
+  --compose-btn-hover-bg: #1669c1;
+  --compose-btn-active-bg: #1558b0;
+  --compose-btn-text-color: white;
+  --topbar-icon-color: #5f6368;
+  --topbar-icon-hover-bg: #e8f0fe;
+  --topbar-icon-hover-color: #1a73e8;
+}
+
+/* Dark theme colors */
+[data-theme="dark"],
+html[data-theme="dark"],
+body[data-theme="dark"] {
+  --text-primary: #e0e0e0;
+  --body-bg: #1a1a1a;
+  --sidebar-bg: #2d2d2d;
+  --sidebar-shadow: rgba(0, 0, 0, 0.3);
+  --sidebar-title-color: #e0e0e0;
+  --menu-item-color: #e0e0e0;
+  --menu-hover-bg: #3a3a3a;
+  --topbar-bg: #2d2d2d;
+  --topbar-shadow: rgba(0, 0, 0, 0.2);
+  --topbar-border: #333;
+  --search-bar-border: #404040;
+  --search-bar-focus-border: #4da6ff;
+  --inbox-section-bg: #242424;
+  --inbox-section-shadow: rgba(0, 0, 0, 0.2);
+  --inbox-section-border: #333;
+  --email-item-border: #333;
+  --email-item-hover-bg: #3a3a3a;
+  --sender-color: #e0e0e0;
+  --subject-color: #e0e0e0;
+  --time-color: #b0b0b0;
+  --search-section-bg: #242424;
+  --search-section-shadow: rgba(0, 0, 0, 0.2);
+  --search-section-border: #333;
+  --compose-btn-bg: #4da6ff;
+  --compose-btn-hover-bg: #3399ff;
+  --compose-btn-active-bg: #287ed1;
+  --compose-btn-text-color: #e0e0e0;
+  --topbar-icon-color: #999;
+  --topbar-icon-hover-bg: #3a3a3a;
+  --topbar-icon-hover-color: #4da6ff;
+}
+
+.menu,
+.main-layout,
+.sidebar,
+.sidebar h2,
+.menu li {
+  color: var(--text-primary);
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--body-bg);
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.main-layout {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.sidebar {
+  width: 280px;
+  min-width: 200px;
+  background: var(--sidebar-bg);
+  padding: 15px;
+  box-shadow: 2px 0px 5px var(--sidebar-shadow);
+  color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    width: 150px;
+    padding: 10px;
+  }
+}
+
+.sidebar h2 {
+  font-size: 18px;
+  color: var(--sidebar-title-color);
+}
+
+.sidebar .menu button {
+  background: none;
+  border: none;
+  padding: 8px 12px;
+  text-align: left;
+  font-size: 1rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.sidebar .menu button:hover {
+  background-color: var(--menu-hover-bg);
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+}
+
+.menu li {
+  padding: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--menu-item-color);
+  border-radius: 4px;
+}
+
+.menu li:hover {
+  background-color: var(--menu-hover-bg);
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--topbar-bg);
+  padding: 8px 20px;
+  height: 64px;
+  border-bottom: 1px solid var(--topbar-border);
+  box-shadow: 0px 1px 3px var(--topbar-shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  min-width: 0;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  height: 80px;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.topbar-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.search-bar {
+  flex: 1;
+  min-width: 10px;
+  max-width: calc(100% - 100px);
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid var(--search-bar-border);
+  border-radius: 24px;
+  outline: none;
+  background-color: var(--topbar-bg);
+  color: var(--text-primary);
+}
+
+.search-bar:focus {
+  background-color: var(--topbar-bg);
+  border: 1px solid var(--search-bar-focus-border);
+  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.topbar-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  fill: var(--topbar-icon-color);
+  transition: background-color 0.2s, fill 0.2s;
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.topbar-icon:hover {
+  background-color: var(--topbar-icon-hover-bg);
+  fill: var(--topbar-icon-hover-color);
+}
+
+.inbox-section {
+  flex: 1;
+  background: var(--inbox-section-bg);
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 2px 5px var(--inbox-section-shadow);
+  border-left: 1px solid var(--inbox-section-border);
+  border-right: 1px solid var(--inbox-section-border);
+  min-width: 0;
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+.email-list {
+  list-style: none;
+  padding: 0;
+}
+
+.email-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  border-bottom: 1px solid var(--email-item-border);
+  cursor: pointer;
+}
+
+.email-item:hover {
+  background-color: var(--email-item-hover-bg);
+}
+
+.sender {
+  font-weight: bold;
+  color: var(--sender-color);
+}
+
+.subject {
+  flex-grow: 1;
+  padding: 0 10px;
+  color: var(--subject-color);
+}
+
+.time {
+  color: var(--time-color);
+}
+
+.search-section {
+  flex: 1;
+  background: var(--search-section-bg);
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 2px 5px var(--search-section-shadow);
+  border-left: 1px solid var(--search-section-border);
+  border-right: 1px solid var(--search-section-border);
+  min-width: 0;
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+/* 🔹 Compose Button */
+.compose-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--compose-btn-bg);
+  color: var(--compose-btn-text-color);
+  font-size: 16px;
+  font-weight: 500;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 28px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  margin-bottom: 16px;
+}
+
+.compose-btn:hover {
+  background-color: var(--compose-btn-hover-bg);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.compose-btn:active {
+  background-color: var(--compose-btn-active-bg);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.compose-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}

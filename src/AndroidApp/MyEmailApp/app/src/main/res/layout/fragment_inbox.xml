@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="56dp"
+    android:orientation="vertical">
+
+    <!-- Toggle Button for filtering -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/filter_prefix"
+            android:textSize="16sp" />
+
+        <ToggleButton
+            android:id="@+id/toggle_unread_only"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOff="@string/all_emails"
+            android:textOn="@string/unread_only" />
+    </LinearLayout>
+
+    <!-- Existing RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_inbox"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- Empty state text -->
+    <TextView
+        android:id="@+id/empty_inbox_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/no_emails_in_inbox"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:layout_margin="16dp"
+        android:visibility="gone" />
+
+</LinearLayout>

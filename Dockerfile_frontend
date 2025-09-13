@@ -1,0 +1,46 @@
+# # Use an official Node.js runtime
+# FROM node:18-alpine
+
+# # Create app directory inside container
+# WORKDIR /app
+
+# # Copy package.json and package-lock.json from your React project
+# COPY src/frontend/package*.json ./
+# COPY src/frontend/. .
+# # Install dependencies
+# RUN npm install
+
+# # Copy the rest of your React source code
+# COPY . .
+
+# # Expose the port the CRA dev server runs on
+# EXPOSE 3000
+
+# # Start the React development server
+# CMD ["npm", "start"]
+
+# FROM node:18-alpine
+# WORKDIR /app
+
+# # Copy package files first for better caching
+# COPY src/frontend/package*.json ./
+# RUN npm install
+
+# # Copy source code
+# COPY src/frontend/ ./
+
+# EXPOSE 3000
+# CMD ["npm", "start"]
+FROM node:18-alpine
+WORKDIR /app
+
+ARG FRONTEND_PORT=3000
+ENV FRONTEND_PORT=$FRONTEND_PORT
+
+COPY src/frontend/package*.json ./
+RUN npm install
+
+COPY src/frontend/ ./
+
+EXPOSE $FRONTEND_PORT
+CMD ["npm", "start"]

@@ -1,0 +1,188 @@
+/* Define CSS variables for light and dark themes */
+:root {
+  /* Light theme colors (unchanged from provided file) */
+  --search-border: #ddd;
+  --search-bg: white;
+  --search-shadow: rgba(0, 0, 0, 0.1);
+  --search-focus-border: #1a73e8;
+  --search-focus-shadow: rgba(26, 115, 232, 0.2);
+  --suggestions-bg: white;
+  --suggestions-border: #ddd;
+  --suggestions-hover-bg: #f1f3f4;
+  --clear-history-color: #d93025;
+  --clear-history-border: #eee;
+  --remove-btn-color: #888;
+  --remove-btn-hover-color: red;
+  --mail-suggestions-border: #ccc;
+  --mail-suggestions-bg: white;
+  --mail-suggestion-item-border: #eee;
+  --mail-suggestion-item-hover-bg: #f3f3f3;
+  --mail-result-border: #eee;
+  --mail-result-hover-bg: #f1f3f4;
+  --mail-subject-color: #202124;
+  --mail-from-color: #5f6368;
+}
+
+/* Dark theme colors */
+[data-theme="dark"],
+html[data-theme="dark"],
+body[data-theme="dark"] {
+  --search-border: #404040;
+  --search-bg: #2d2d2d;
+  --search-shadow: rgba(0, 0, 0, 0.3);
+  --search-focus-border: #4da6ff;
+  --search-focus-shadow: rgba(77, 166, 255, 0.3);
+  --suggestions-bg: #2d2d2d;
+  --suggestions-border: #404040;
+  --suggestions-hover-bg: #3a3a3a;
+  --clear-history-color: #ff6666;
+  --clear-history-border: #333;
+  --remove-btn-color: #777;
+  --remove-btn-hover-color: #ff4d4d;
+  --mail-suggestions-border: #404040;
+  --mail-suggestions-bg: #2d2d2d;
+  --mail-suggestion-item-border: #333;
+  --mail-suggestion-item-hover-bg: #3a3a3a;
+  --mail-result-border: #333;
+  --mail-result-hover-bg: #3a3a3a;
+  --mail-subject-color: #e0e0e0;
+  --mail-from-color: #b0b0b0;
+}
+
+.search-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 1px solid var(--search-border);
+  border-radius: 24px;
+  outline: none;
+  transition: border-color 0.2s;
+  box-shadow: 0 1px 2px var(--search-shadow);
+  background: var(--search-bg);
+  color: var(--text-primary);
+}
+
+.search-bar:focus {
+  border-color: var(--search-focus-border);
+  box-shadow: 0 0 0 2px var(--search-focus-shadow);
+}
+
+.search-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--suggestions-bg);
+  border: 1px solid var(--suggestions-border);
+  border-top: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  z-index: 100;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0px 4px 12px var(--shadow-primary);
+}
+
+.suggestion-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  cursor: default;
+  position: relative;
+  color: var(--text-primary);
+}
+
+.suggestion-item:hover {
+  background-color: var(--suggestions-hover-bg);
+}
+
+.clear-history {
+  color: var(--clear-history-color);
+  font-weight: bold;
+  border-top: 1px solid var(--clear-history-border);
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: var(--remove-btn-color);
+  cursor: pointer;
+  font-size: 14px;
+  visibility: hidden;
+}
+
+.suggestion-item:hover .remove-btn {
+  visibility: visible;
+}
+
+.remove-btn:hover {
+  color: var(--remove-btn-hover-color);
+}
+
+.mail-suggestions {
+  margin-top: 8px;
+  list-style: none;
+  padding: 0;
+  border: 1px solid var(--mail-suggestions-border);
+  border-radius: 4px;
+  background: var(--mail-suggestions-bg);
+}
+
+.mail-suggestion-item {
+  padding: 10px;
+  border-bottom: 1px solid var(--mail-suggestion-item-border);
+  cursor: pointer;
+  color: var(--text-primary);
+}
+
+.mail-suggestion-item:hover {
+  background: var(--mail-suggestion-item-hover-bg);
+}
+
+.mail-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.mail-result {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid var(--mail-result-border);
+  cursor: pointer;
+  transition: background 0.2s ease;
+  color: var(--text-primary);
+}
+
+.mail-result:hover {
+  background-color: var(--mail-result-hover-bg);
+}
+
+.icon {
+  font-size: 20px;
+  margin-right: 10px;
+  color: var(--text-primary);
+}
+
+.mail-preview {
+  display: flex;
+  flex-direction: column;
+}
+
+.mail-subject {
+  font-weight: 500;
+  color: var(--mail-subject-color);
+}
+
+.mail-from {
+  font-size: 12px;
+  color: var(--mail-from-color);
+}

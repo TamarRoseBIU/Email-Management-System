@@ -1,0 +1,32 @@
+FROM gcc:latest AS builder
+
+RUN apt-get update && apt-get install -y \
+    cmake \
+    git \
+    wget \
+    unzip \
+    build-essential
+
+WORKDIR /app
+
+# Explicitly copy necessary directories and files
+COPY src /app/src
+COPY tests /app/tests
+COPY data /app/data
+
+RUN mkdir build
+WORKDIR /app/build
+
+RUN cmake ../tests && make
+
+FROM gcc:latest
+
+RUN apt-get update && apt-get install -y libstdc++6
+
+# Copy the test executable
+COPY --from=builder /app/build/runTests /runTests
+
+# Ensure data directory is available in the final image
+COPY data /data
+
+CMD ["/runTests"]

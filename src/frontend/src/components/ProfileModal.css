@@ -1,0 +1,122 @@
+/* Define CSS variables for light and dark themes */
+:root {
+  /* Light theme colors (unchanged from provided file) */
+  --modal-overlay-bg: rgba(0, 0, 0, 0.5);
+  --profile-slide-bg: #ffffff;
+  --profile-slide-shadow: rgba(0, 0, 0, 0.1);
+  --profile-title-color: #2d3748;
+  --profile-avatar-border: #4299e1;
+  --profile-detail-color: #4a5568;
+  --close-button-bg: #e53e3e;
+  --close-button-hover-bg: #c53030;
+  --logout-button-bg: #48bb78;
+  --logout-button-hover-bg: #38a169;
+  --button-text-color: #ffffff;
+}
+
+/* Dark theme colors */
+[data-theme="dark"],
+html[data-theme="dark"],
+body[data-theme="dark"] {
+  --modal-overlay-bg: rgba(0, 0, 0, 0.7);
+  --profile-slide-bg: #2d2d2d;
+  --profile-slide-shadow: rgba(0, 0, 0, 0.3);
+  --profile-title-color: #e0e0e0;
+  --profile-avatar-border: #4da6ff;
+  --profile-detail-color: #b0b0b0;
+  --close-button-bg: #ff6666;
+  --close-button-hover-bg: #cc3333;
+  --logout-button-bg: #4caf50;
+  --logout-button-hover-bg: #388e3c;
+  --button-text-color: #e0e0e0;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--modal-overlay-bg);
+  display: flex;
+  justify-content: flex-end;
+  align-items: stretch;
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+}
+
+.profile-slide {
+  background-color: var(--profile-slide-bg);
+  padding: 2rem;
+  border-radius: 0.5rem 0 0 0.5rem;
+  box-shadow: -2px 0 6px var(--profile-slide-shadow);
+  text-align: center;
+  width: 300px;
+  height: 100%;
+  transform: translateX(100%);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  position: absolute;
+  right: 0;
+  top: 0;
+  overflow-y: auto;
+  opacity: 1;
+}
+
+.modal-overlay.active .profile-slide {
+  transform: translateX(0);
+}
+
+.profile-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: var(--profile-title-color);
+}
+
+.profile-avatar {
+  width: 150px;
+  height: 150px;
+  border: 2px solid var(--profile-avatar-border);
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  object-fit: cover;
+}
+
+.profile-detail {
+  margin: 0.5rem 0;
+  color: var(--profile-detail-color);
+}
+
+.close-button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--close-button-bg);
+  color: var(--button-text-color);
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  background-color: var(--close-button-hover-bg);
+}
+
+.logout-button {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--logout-button-bg);
+  color: var(--button-text-color);
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  width: 100%;
+}
+
+.logout-button:hover {
+  background-color: var(--logout-button-hover-bg);
+}

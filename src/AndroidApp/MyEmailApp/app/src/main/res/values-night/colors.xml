@@ -1,0 +1,4 @@
+<resources>
+    <color name="email_read_background">#4A4A4A</color>       <!-- dark gray -->
+    <color name="email_unread_background">#665C00</color>     <!-- deep yellow-gold -->
+</resources>

@@ -1,0 +1,31 @@
+# Use the official Node.js 20 slim image as the base
+FROM node:20-slim
+
+# Set working directory inside the container
+WORKDIR /usr/src/app
+
+# Accept build arguments
+ARG BACKEND_PORT=8080
+
+# Generate package.json using npm init -y
+RUN npm init -y
+
+# Install dependencies required by app.js
+RUN npm install express body-parser uuid
+
+RUN npm install dotenv cors jsonwebtoken multer node-cron parser mongoose
+
+# Copy the entire src directory (including app.js and other files/folders like routes and models)
+COPY src/ ./src/
+
+# Copy the data directory (containing data.txt)
+COPY data/ ./data/
+
+# Expose the backend port from build arg
+EXPOSE ${BACKEND_PORT}
+
+# Set ENTRYPOINT to run the app
+ENTRYPOINT ["node", "src/web service/app.js"]
+
+# Provide default arguments (host, app port, server port)
+CMD ["localhost", "8080", "9000"]

@@ -1,0 +1,284 @@
+/* Define CSS variables for light and dark themes */
+:root {
+  /* Light theme colors (unchanged from provided file) */
+  --text-primary: #333;
+  --inbox-container-bg: #ffffff;
+  --inbox-container-shadow: rgba(0, 0, 0, 0.1);
+  --inbox-container-border: #ccc;
+  --email-item-bg: #f5f5f5;
+  --email-item-border: #ddd;
+  --email-item-hover-bg: #eaeaea;
+  --email-item-unread-bg: #fffbe6;
+  --email-item-unread-shadow: rgba(237, 234, 215, 0.4);
+  --email-item-unread-border: #f5f5f5;
+  --sender-color: #333;
+  --subject-color: #555;
+  --body-color: #444;
+  --labels-color: #007bff;
+  --timestamp-color: #999;
+  --button-color: #888888;
+  --button-hover-color: #555555;
+  --button-focus-shadow: #aaa;
+  --email-detail-container-bg: #fafafa;
+  --email-detail-container-shadow: rgba(0, 0, 0, 0.05);
+  --email-detail-header-border: #ddd;
+  --email-detail-header-color: #007bff;
+  --email-detail-meta-color: #666;
+  --email-detail-body-bg: #fff;
+  --email-detail-body-shadow: #eee;
+  --back-button-color: #007bff;
+  --back-button-hover-color: #0056b3;
+}
+
+/* Dark theme colors */
+[data-theme="dark"],
+html[data-theme="dark"],
+body[data-theme="dark"] {
+  --text-primary: #e0e0e0;
+  --inbox-container-bg: #2d2d2d;
+  --inbox-container-shadow: rgba(0, 0, 0, 0.3);
+  --inbox-container-border: #404040;
+  --email-item-bg: #3a3a3a;
+  --email-item-border: #333;
+  --email-item-hover-bg: #444444;
+  --email-item-unread-bg: #3e2f1a;
+  --email-item-unread-shadow: rgba(42, 36, 22, 0.6);
+  --email-item-unread-border: #3a3a3a;
+  --sender-color: #e0e0e0;
+  --subject-color: #b0b0b0;
+  --body-color: #c0c0c0;
+  --labels-color: #4da6ff;
+  --timestamp-color: #666;
+  --button-color: #777;
+  --button-hover-color: #b0b0b0;
+  --button-focus-shadow: #666;
+  --email-detail-container-bg: #242424;
+  --email-detail-container-shadow: rgba(0, 0, 0, 0.2);
+  --email-detail-header-border: #333;
+  --email-detail-header-color: #4da6ff;
+  --email-detail-meta-color: #999;
+  --email-detail-body-bg: #1e1e1e;
+  --email-detail-body-shadow: #333;
+  --back-button-color: #4da6ff;
+  --back-button-hover-color: #3399ff;
+}
+
+.inbox-container h2,
+.inbox-container h3,
+.inbox-container p,
+.inbox-container .section-title,
+.inbox-container .empty-section,
+.inbox-container .error {
+  color: var(--text-primary);
+}
+
+/* Container for Inbox or Drafts */
+.inbox-container {
+  padding: 20px;
+  background: var(--inbox-container-bg);
+  box-shadow: 0px 4px 10px var(--inbox-container-shadow);
+  border: 2px solid var(--inbox-container-border);
+  border-radius: 8px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Email list */
+.email-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.email-list li {
+  padding: 0;
+  margin: 0 0 6px 0;
+}
+
+/* Email item */
+.email-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding: 10px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  background-color: var(--email-item-bg);
+  border-radius: 4px;
+  font-size: 12px;
+  border: none;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  text-align: left;
+  min-height: 60px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--email-item-border);
+}
+
+.email-item:hover {
+  background-color: var(--email-item-hover-bg);
+}
+
+.email-item.unread {
+  background-color: var(--email-item-unread-bg);
+  box-shadow: 0 0 8px var(--email-item-unread-shadow);
+  border: 1px solid var(--email-item-unread-border);
+}
+
+/* Content inside email item */
+.email-item span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* Columns inside the email item */
+.sender,
+.to,
+.subject,
+.body,
+.labels,
+.timestamp {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  min-width: 0;
+  font-size: 0.9rem;
+}
+
+.sender {
+  font-weight: bold;
+  flex: 1;
+  min-width: 80px;
+  color: var(--sender-color);
+}
+
+.subject {
+  flex: 2;
+  padding: 0 10px;
+  color: var(--subject-color);
+  font-weight: bold;
+}
+
+.body {
+  flex: 3;
+  padding: 0 10px;
+  color: var(--body-color);
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.labels {
+  flex: 1.5;
+  font-size: 11px;
+  color: var(--labels-color);
+}
+
+.timestamp {
+  flex: 1;
+  font-size: 10px;
+  color: var(--timestamp-color);
+  text-align: right;
+}
+
+/* Action buttons */
+.email-item-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.trash-button,
+.mark-unread-button,
+.mark-read-button {
+  background-color: transparent;
+  color: var(--button-color);
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.2s;
+  outline: none;
+  box-shadow: none;
+}
+
+.trash-button:hover,
+.mark-unread-button:hover,
+.mark-read-button:hover {
+  color: var(--button-hover-color);
+}
+
+.trash-button:focus,
+.mark-unread-button:focus,
+.mark-read-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--button-focus-shadow);
+  color: var(--button-hover-color);
+}
+
+/* Detail view (used for full email view) */
+.email-detail-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 25px 30px;
+  background-color: var(--email-detail-container-bg);
+  border-radius: 8px;
+  box-shadow: inset 0 0 10px var(--email-detail-container-shadow);
+}
+
+.email-detail-header {
+  border-bottom: 1px solid var(--email-detail-header-border);
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.email-detail-header h2 {
+  margin: 0 0 10px;
+  font-size: 1.8rem;
+  color: var(--email-detail-header-color);
+}
+
+.email-detail-meta {
+  font-size: 0.9rem;
+  color: var(--email-detail-meta-color);
+  margin-bottom: 10px;
+}
+
+.email-detail-body {
+  line-height: 1.6;
+  font-size: 1rem;
+  white-space: pre-wrap;
+  background-color: var(--email-detail-body-bg);
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: inset 0 0 10px var(--email-detail-body-shadow);
+}
+
+/* Back button */
+.back-button {
+  background: none;
+  border: none;
+  color: var(--back-button-color);
+  cursor: pointer;
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  padding: 0;
+  transition: color 0.3s ease;
+}
+
+.back-button:hover {
+  color: var(--back-button-hover-color);
+  text-decoration: underline;
+}

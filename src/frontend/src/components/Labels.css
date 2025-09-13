@@ -1,0 +1,214 @@
+/* Define CSS variables for light and dark themes */
+:root {
+  /* Light theme colors (unchanged from provided file) */
+  --label-container-bg: #ffffff;
+  --label-container-shadow: rgba(0, 0, 0, 0.05);
+  --label-header-bg: #f1f3f4;
+  --label-header-text-color: #202124;
+  --label-item-hover-bg: #e2e6ea;
+  --label-name-color: #202124;
+  --action-btn-color: #202124;
+  --add-btn-bg: #1a73e8;
+  --add-btn-hover-bg: #1557b0;
+  --add-btn-text-color: #ffffff;
+  --add-btn-focus-shadow: rgba(26, 115, 232, 0.3);
+  --show-all-btn-bg: #1a73e8;
+  --show-all-btn-hover-bg: #1557b0;
+  --show-all-btn-text-color: #ffffff;
+  --show-all-btn-focus-shadow: rgba(26, 115, 232, 0.3);
+  --label-input-bg: #ffffff;
+  --label-input-border: #dadce0;
+  --label-input-focus-border: #1a73e8;
+  --label-input-focus-shadow: rgba(26, 115, 232, 0.2);
+  --label-input-hover-border: #b0b3b8;
+  --label-input-text-color: #202124;
+  --label-input-placeholder-color: #5f6368;
+  --label-list-border: #ddd;
+  --add-label-container-border: #eee;
+  --error-color: red;
+}
+
+/* Dark theme colors */
+[data-theme="dark"],
+html[data-theme="dark"],
+body[data-theme="dark"] {
+  --label-container-bg: #2d2d2d;
+  --label-container-shadow: rgba(0, 0, 0, 0.3);
+  --label-header-bg: #3a3a3a;
+  --label-header-text-color: #e0e0e0;
+  --label-item-hover-bg: #3e3e3e;
+  --label-name-color: #e0e0e0;
+  --action-btn-color: #b0b0b0;
+  --add-btn-bg: #4da6ff;
+  --add-btn-hover-bg: #3399ff;
+  --add-btn-text-color: #e0e0e0;
+  --add-btn-focus-shadow: rgba(77, 166, 255, 0.3);
+  --show-all-btn-bg: #4da6ff;
+  --show-all-btn-hover-bg: #3399ff;
+  --show-all-btn-text-color: #e0e0e0;
+  --show-all-btn-focus-shadow: rgba(77, 166, 255, 0.3);
+  --label-input-bg: #2d2d2d;
+  --label-input-border: #404040;
+  --label-input-focus-border: #4da6ff;
+  --label-input-focus-shadow: rgba(77, 166, 255, 0.2);
+  --label-input-hover-border: #666;
+  --label-input-text-color: #e0e0e0;
+  --label-input-placeholder-color: #999;
+  --label-list-border: #333;
+  --add-label-container-border: #404040;
+  --error-color: #ff6666;
+}
+
+.label-container {
+  margin-top: 20px;
+  padding: 12px;
+  background: var(--label-container-bg);
+  border-radius: 12px;
+  box-shadow: 0 2px 4px var(--label-container-shadow);
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
+    sans-serif;
+}
+
+.label-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 8px 12px;
+  margin-bottom: 12px;
+  background: var(--label-header-bg);
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.label-header span {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--label-header-text-color);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.label-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.label-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.label-item:hover {
+  background: var(--label-item-hover-bg);
+}
+
+.label-name {
+  flex-grow: 1;
+  color: var(--label-name-color);
+}
+
+.label-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 2px;
+  transition: background 0.2s ease;
+  color: var(--action-btn-color);
+}
+
+.add-btn,
+.show-all-btn {
+  background: var(--add-btn-bg);
+  color: var(--add-btn-text-color);
+  border: none;
+  border-radius: 4px;
+  padding: 6px 10px;
+  margin-right: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.add-btn:hover,
+.show-all-btn:hover {
+  background: var(--add-btn-hover-bg);
+}
+
+.add-btn:focus,
+.show-all-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--add-btn-focus-shadow);
+}
+
+.label-input {
+  padding: 8px 12px;
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
+    sans-serif;
+  color: var(--label-input-text-color);
+  background: var(--label-input-bg);
+  border: 1px solid var(--label-input-border);
+  border-radius: 6px;
+  margin-right: 8px;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.label-input:focus {
+  outline: none;
+  border-color: var(--label-input-focus-border);
+  box-shadow: 0 0 0 2px var(--label-input-focus-shadow);
+}
+
+.label-input::placeholder {
+  color: var(--label-input-placeholder-color);
+  opacity: 1;
+}
+
+.label-input:hover {
+  border-color: var(--label-input-hover-border);
+}
+
+.label-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.label-list.scrollable {
+  max-height: 250px;
+  overflow-y: auto;
+  margin-top: 5px;
+  border-top: 1px solid var(--label-list-border);
+}
+
+.add-label-container {
+  padding: 8px;
+  border-bottom: 1px solid var(--add-label-container-border);
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.error {
+  color: var(--error-color);
+  font-size: 14px;
+  margin-bottom: 10px;
+  padding: 5px;
+}

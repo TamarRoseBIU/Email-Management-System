@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:background="@drawable/rounded_background"
+    android:layout_margin="4dp">
+
+    <!-- First line: Sender's name (bold and bigger font) -->
+    <ImageButton
+        android:id="@+id/button_star"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:src="@drawable/star_filled"
+        android:contentDescription="@string/star_btn"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:scaleType="centerInside"
+        android:layout_marginEnd="4dp"/>
+
+    <TextView
+        android:id="@+id/text_from"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="@string/sender_placeholder"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <!-- Third line: Subject and beginning of email body (bold subject) -->
+    <TextView
+        android:id="@+id/text_subject_body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/subject_placeholder"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:paddingTop="4dp"
+        android:maxLines="2"
+        android:ellipsize="end" />
+
+    <!-- Fourth line: Labels -->
+    <TextView
+        android:id="@+id/text_labels"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:paddingTop="16dp"
+        android:paddingStart="7dp"
+        android:text="@string/labels_placeholder" />
+
+    <!-- Fifth line: Date, aligned to the right -->
+    <TextView
+        android:id="@+id/text_timestamp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/date_placeholder"
+        android:gravity="end"
+        android:paddingTop="4dp"
+        android:maxLines="1"
+        android:ellipsize="end" />
+
+    <!-- Buttons pushed to the right -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end"
+        android:paddingTop="8dp">
+
+        <ImageButton
+            android:id="@+id/button_delete"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_delete"
+            android:contentDescription="@string/btn_permanent_delete"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:scaleType="centerInside"
+            android:layout_marginEnd="4dp" />
+
+        <ImageButton
+            android:id="@+id/button_restore"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_restore"
+            android:contentDescription="@string/btn_restore"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:scaleType="centerInside"
+            android:layout_marginEnd="4dp" />
+
+        <ImageButton
+            android:id="@+id/button_mark_read"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_mark_read"
+            android:contentDescription="@string/btn_mark_read"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:scaleType="centerInside"
+            android:layout_marginEnd="4dp" />
+
+        <ImageButton
+            android:id="@+id/button_mark_unread"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_mark_unread"
+            android:contentDescription="@string/btn_mark_unread"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:scaleType="centerInside"
+            android:layout_marginEnd="4dp" />
+
+        <ImageButton
+            android:id="@+id/button_spam"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_spam"
+            android:contentDescription="@string/btn_spam"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:scaleType="centerInside"
+            android:layout_marginEnd="4dp" />
+
+        <ImageButton
+            android:id="@+id/button_labels"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_labels"
+            android:contentDescription="@string/btn_labels"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:scaleType="centerInside" />
+
+    </LinearLayout>
+</LinearLayout>

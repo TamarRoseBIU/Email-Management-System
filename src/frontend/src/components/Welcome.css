@@ -1,0 +1,109 @@
+/* Define CSS variables for light and dark themes */
+:root {
+  /* Light theme colors */
+  --welcome-bg: linear-gradient(
+    135deg,
+    #f8fafc 0%,
+    #e5e7eb 100%
+  ); /* Subtle gradient: light white to light gray */
+  --welcome-title-color: #1f2937; /* Dark gray for contrast */
+  --welcome-button-bg: #60a5fa; /* Light blue, matching profile-details */
+  --welcome-button-border: #60a5fa; /* Light blue border */
+  --welcome-button-hover-bg: #3b82f6; /* Slightly darker blue */
+  --welcome-button-text: #ffffff; /* White text */
+  --welcome-shadow: rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Dark theme colors */
+[data-theme="dark"],
+html[data-theme="dark"],
+body[data-theme="dark"] {
+  --welcome-bg: linear-gradient(
+    135deg,
+    #f8fafc 0%,
+    #e5e7eb 100%
+  ); /* Subtle gradient: light white to light gray */
+  --welcome-title-color: #1f2937; /* Dark gray for contrast */
+  --welcome-button-bg: #60a5fa; /* Light blue, matching profile-details */
+  --welcome-button-border: #60a5fa; /* Light blue border */
+  --welcome-button-hover-bg: #3b82f6; /* Slightly darker blue */
+  --welcome-button-text: #ffffff; /* White text */
+  --welcome-shadow: rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Apply font family globally */
+.welcome-container,
+.welcome-title,
+.welcome-button {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
+    sans-serif;
+}
+
+.welcome-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--welcome-bg); /* Subtle gradient background */
+  position: relative;
+  overflow: hidden; /* Ensure pseudo-element doesn’t overflow */
+}
+
+/* Subtle background effect for visual interest */
+.welcome-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0) 70%
+  ); /* Light mode: faint white glow */
+  z-index: -1;
+  opacity: 0.5;
+}
+
+[data-theme="dark"] .welcome-container::before {
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0) 70%
+  ); /* Dark mode: subtle glow */
+}
+
+.welcome-title {
+  font-size: 2rem; /* Slightly smaller for compactness */
+  font-weight: 600;
+  color: var(--welcome-title-color);
+  margin-bottom: 1rem; /* Reduced spacing */
+  text-shadow: 0 2px 4px var(--welcome-shadow); /* Subtle text shadow */
+}
+
+.welcome-buttons {
+  display: flex;
+  gap: 0.75rem; /* Tighter gap between buttons */
+}
+
+.welcome-button {
+  padding: 0.75rem 1.5rem; /* Reduced padding for compactness */
+  font-size: 0.95rem; /* Slightly smaller font */
+  border-radius: 8px; /* Softer rounded edges */
+  border: 2px solid var(--welcome-button-border);
+  background: var(--welcome-button-bg);
+  color: var(--welcome-button-text);
+  cursor: pointer;
+  box-shadow: 0 2px 6px var(--welcome-shadow); /* Subtle shadow */
+  transition: background-color 0.2s ease, transform 0.1s ease,
+    box-shadow 0.2s ease;
+  text-align: center;
+}
+
+.welcome-button:hover {
+  background: var(--welcome-button-hover-bg);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px var(--welcome-shadow); /* Slightly stronger shadow on hover */
+}

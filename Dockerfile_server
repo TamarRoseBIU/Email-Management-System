@@ -1,0 +1,53 @@
+# # Use the latest official GCC image
+# FROM gcc:latest
+
+# # Install required packages
+# RUN apt-get update && apt-get install -y \
+#     cmake \
+#     make \
+#     && rm -rf /var/lib/apt/lists/*
+
+# # Set working directory inside the container
+# WORKDIR /app
+
+# # Copy project files
+# COPY CMakeLists.txt ./
+# COPY src/ src/
+# COPY data/ data/
+
+# # Create build directory and compile the project
+# RUN mkdir build && cd build && cmake .. && make
+
+# # Set working directory to where the compiled binary is
+# WORKDIR /app/build
+
+# # Set default command to run the app
+# ENTRYPOINT ["./BloomFilterApp"]
+
+# Use the latest official GCC image
+FROM gcc:latest
+
+# Install required packages
+RUN apt-get update && apt-get install -y \
+    cmake \
+    make \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set working directory inside the container
+WORKDIR /app
+
+# Copy CMakeLists.txt first for better caching
+COPY CMakeLists.txt ./
+
+# Copy source and data
+COPY src/ src/
+COPY data/ data/
+
+# Create build directory and compile the project
+RUN mkdir build && cd build && cmake .. && make
+
+# Set working directory to where the compiled binary is
+WORKDIR /app/build
+
+# Set default command to run the app
+ENTRYPOINT ["./BloomFilterApp"]

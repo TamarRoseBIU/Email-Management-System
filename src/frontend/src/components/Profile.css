@@ -1,0 +1,157 @@
+/* --- CSS Variables (unchanged, but good to have) --- */
+:root {
+  /* Light theme colors */
+  --profile-bg: #f0f2f5; /* Lighter, modern background */
+  --profile-details-bg: #ffffff; /* Crisp white for the card */
+  --profile-shadow: rgba(0, 0, 0, 0.08); /* Softer shadow */
+  --avatar-border: #e0e0e0;
+  --name-color: #333333;
+  --info-color: #555555;
+  --info-strong-color: #333333; /* Slightly darker for labels */
+  --close-button-bg: #e0e0e0; /* More subtle close button */
+  --close-button-hover-bg: #d0d0d0;
+  --edit-button-bg: #007bff; /* Standard blue for actions */
+  --edit-button-hover-bg: #0056b3;
+  --button-text-color: #333333; /* Darker text for subtle buttons */
+  --edit-button-text-color: white; /* White text for primary action */
+}
+
+/* Dark theme colors */
+[data-theme="dark"],
+html[data-theme="dark"],
+body[data-theme="dark"] {
+  --profile-bg: #1a1a1a;
+  --profile-details-bg: #2d2d2d;
+  --profile-shadow: rgba(0, 0, 0, 0.3);
+  --avatar-border: #404040;
+  --name-color: #e0e0e0;
+  --info-color: #b0b0b0;
+  --info-strong-color: #e0e0e0;
+  --close-button-bg: #404040;
+  --close-button-hover-bg: #555555;
+  --edit-button-bg: #0056b3;
+  --edit-button-hover-bg: #004085;
+  --button-text-color: #e0e0e0;
+  --edit-button-text-color: #e0e0e0;
+}
+
+/* --- General Layout --- */
+.profile-details-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--profile-bg);
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* Modern font stack */
+  color: var(--info-color); /* Default text color */
+}
+
+.profile-details {
+  background: var(--profile-details-bg);
+  border-radius: 16px; /* Slightly more rounded corners */
+  box-shadow: 0 10px 30px var(--profile-shadow); /* Enhanced shadow */
+  width: 100%;
+  max-width: 450px; /* A bit wider for better content spacing */
+  padding: 2.5rem 2rem; /* Adjusted padding */
+  position: relative;
+  box-sizing: border-box;
+  text-align: center; /* Center align content within the card */
+}
+
+/* --- Header Section (Avatar and Name) --- */
+.profile-header {
+  margin-bottom: 2rem; /* More space below header */
+}
+
+.profile-details-avatar {
+  width: 130px; /* Slightly larger avatar */
+  height: 130px;
+  border-radius: 50%;
+  border: 4px solid var(--avatar-border); /* Thicker border for emphasis */
+  object-fit: cover; /* Ensures image covers the area */
+  margin: 0 auto 1.5rem; /* Centered with more bottom margin */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for avatar */
+}
+
+.profile-details-name {
+  font-size: 2.2rem; /* Slightly smaller, more refined font size */
+  font-weight: 700; /* Bolder for impact */
+  color: var(--name-color);
+  margin-bottom: 0; /* Remove default margin */
+}
+
+/* --- Info Section --- */
+.profile-details-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* More space between info lines */
+  text-align: left; /* Align info text to the left */
+  padding: 0 1rem; /* Padding for the info block */
+}
+
+.data-pair {
+  display: flex;
+  justify-content: space-between; /* Aligns label and value to ends */
+  align-items: center;
+  padding: 0.75rem 0; /* Vertical padding for each row */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Subtle separator */
+}
+
+.data-pair:last-child {
+  border-bottom: none; /* No border for the last item */
+}
+
+.data-label {
+  font-weight: 600; /* Bolder label */
+  color: var(--info-strong-color);
+  margin-right: 1rem; /* Space between label and value */
+  flex-shrink: 0; /* Prevent label from shrinking */
+}
+
+.data-value {
+  color: var(--info-color);
+  text-align: right; /* Align value to the right */
+  flex-grow: 1; /* Allow value to take up remaining space */
+}
+
+/* --- Buttons --- */
+.close-button,
+.edit-button {
+  position: absolute;
+  top: 1.2rem; /* Adjusted position */
+  border: none;
+  border-radius: 50%; /* Make them circular */
+  width: 40px; /* Fixed width/height for circular buttons */
+  height: 40px;
+  display: flex; /* Use flexbox for centering content */
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.5rem; /* Larger icon size */
+  transition: background-color 0.2s ease, transform 0.2s ease; /* Smooth transitions */
+  box-shadow: 0 2px 5px var(--profile-shadow); /* Subtle button shadow */
+}
+
+.close-button {
+  right: 1.2rem;
+  background: var(--close-button-bg);
+  color: var(--button-text-color);
+}
+
+.close-button:hover {
+  background: var(--close-button-hover-bg);
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+.edit-button {
+  left: 1.2rem;
+  background: var(--edit-button-bg);
+  color: var(
+    --edit-button-text-color
+  ); /* Specific text color for edit button */
+}
+
+.edit-button:hover {
+  background: var(--edit-button-hover-bg);
+  transform: translateY(-2px); /* Slight lift on hover */
+}

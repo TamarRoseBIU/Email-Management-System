@@ -1,0 +1,62 @@
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile_server
+    container_name: blacklist-server # Changed from 'server' to 'blacklist-server'
+    networks:
+      - my-network
+    ports:
+      - "${SERVER_PORT}:${SERVER_PORT}"
+    volumes:
+      - "./data:/app/build/data"
+    command: ["${SERVER_PORT}", "${BITS_ARRAY}", "${HASH_1}", "${HASH_2}"]
+    environment:
+      - SERVER_PORT=${SERVER_PORT}
+      - BITS_ARRAY=${BITS_ARRAY}
+      - HASH_1=${HASH_1}
+      - HASH_2=${HASH_2}
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile_app
+      args:
+        BACKEND_PORT: ${BACKEND_PORT}
+        SERVER_PORT: ${SERVER_PORT}
+    depends_on:
+      - server
+    ports:
+      - "${BACKEND_PORT}:${BACKEND_PORT}"
+    environment:
+      - BACKEND_PORT=${BACKEND_PORT}
+      - SERVER_PORT=${SERVER_PORT}
+    networks:
+      - my-network
+    # Use the same arguments as your working manual command
+    command:
+      - "blacklist-server" # Changed from "server" to "blacklist-server"
+      - "${BACKEND_PORT}" # 8080
+      - "${SERVER_PORT}" # 9000
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile_frontend
+      args:
+        FRONTEND_PORT: ${REACT_APP_FRONTEND_PORT}
+    depends_on:
+      - app
+    ports:
+      - "${REACT_APP_FRONTEND_PORT}:${REACT_APP_FRONTEND_PORT}"
+    environment:
+      - REACT_APP_BACKEND_PORT=${BACKEND_PORT}
+      - REACT_APP_FRONTEND_PORT=${REACT_APP_FRONTEND_PORT}
+    networks:
+      - my-network
+    restart: unless-stopped
+
+networks:
+  my-network:
+    name: my-network
+    driver: bridge
