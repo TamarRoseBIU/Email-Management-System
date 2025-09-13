@@ -4,8 +4,6 @@ FROM node:20-slim
 # Set working directory inside the container
 WORKDIR /usr/src/app
 
-# Accept build arguments
-ARG BACKEND_PORT=8080
 
 # Generate package.json using npm init -y
 RUN npm init -y
@@ -21,11 +19,13 @@ COPY src/ ./src/
 # Copy the data directory (containing data.txt)
 COPY data/ ./data/
 
+# Copy the .env file to the working directory
+COPY .env .env
+
 # Expose the backend port from build arg
 EXPOSE ${BACKEND_PORT}
+EXPOSE ${SERVER_PORT}
+EXPOSE ${REACT_APP_FRONTEND_PORT}
 
 # Set ENTRYPOINT to run the app
 ENTRYPOINT ["node", "src/web service/app.js"]
-
-# Provide default arguments (host, app port, server port)
-CMD ["localhost", "8080", "9000"]
