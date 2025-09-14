@@ -67,6 +67,6 @@ For full documentation, screenshots, and setup instructions, see the [Wiki](http
 
 ---
 
-_For full feature details, screenshots, and platform-specific guides, refer to the [Wiki](https://github.com/TamarRoseBIU/Email-Management-System/wiki)._
+_For full feature details, screenshots, and platform-specific guides, here's the [Wiki](https://github.com/TamarRoseBIU/Email-Management-System/wiki)._
 
 
