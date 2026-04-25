@@ -1,6 +1,6 @@
 # 📧 Email-Management System
 
-A full-stack, Gmail-inspired email system with web and Android clients, backed by Node.js and MongoDB. Designed for cross-platform use with JWT-based authentication, real-time synchronization, and advanced email management features.
+A full-stack, Gmail-inspired email system developed in collaboration with a small team, with web and Android clients, backed by Node.js and MongoDB. Designed for cross-platform use with JWT-based authentication, real-time synchronization, and advanced email management features.
 
 For full documentation, screenshots, and setup instructions, see the [Wiki](https://github.com/TamarRoseBIU/Email-Management-System/wiki).
 
